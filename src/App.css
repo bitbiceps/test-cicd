@@ -1,0 +1,62 @@
+/* Cube Container - Set up perspective for 3D effect */
+.cube-container {
+    perspective: 800px; /* This defines the intensity of the 3D effect */
+    position: relative; /* Container is positioned relative to the body */
+    width: fit-content; /* Container width adapts to the cube's width */
+    height: fit-content; /* Container height adapts to the cube's height */
+    display: flex; /* Use flexbox to center the cube */
+    justify-content: center; /* Center the cube horizontally */
+    align-items: center; /* Center the cube vertically */
+  }
+  
+  /* Cube Structure */
+  .cube {
+    position: relative;
+    width: 200px; /* Width of the cube */
+    height: 100px; /* Height of the cube */
+    transform-style: preserve-3d; /* Keep the faces in 3D space */
+    animation: rotateCube 5s infinite ease-in-out; /* Animation rotates the cube continuously */
+    transform-origin: center; /* Ensures the rotation happens around the center */
+  }
+  
+  /* Basic styling for the faces of the cube */
+  .face {
+    position: absolute;
+    width: 200px; /* Width of the cube's faces */
+    height: 100px; /* Height of the cube's faces */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #333; /* Border around each face */
+  }
+  
+  /* Positioning the different faces of the cube */
+  .front  { transform: rotateX(0deg) translateZ(50px); } /* Front face */
+  .bottom { transform: rotateX(90deg) translateZ(50px); } /* Bottom face */
+  .top    { transform: rotateX(-90deg) translateZ(50px); } /* Top face */
+  .back   { transform: rotateX(180deg) translateZ(50px); } /* Back face */
+  
+  /* 3D Cube Rotation Animation in X-axis (vertical flip) */
+  @keyframes rotateCube {
+    0% {
+      transform: rotateX(0deg);
+    }
+    25% {
+      transform: rotateX(90deg); /* Show bottom face */
+    }
+    50% {
+      transform: rotateX(180deg); /* Show top face */
+    }
+    75% {
+      transform: rotateX(270deg); /* Show back face */
+    }
+    100% {
+      transform: rotateX(360deg); /* Rotate back to front */
+    }
+  }
+  

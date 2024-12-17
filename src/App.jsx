@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import "./App.css";
+import CubeRotation from "./CubeRotation";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <div className="min-h-screen flex items-center justify-center bg-gray-200">
+      <CubeRotation />
+    </div>
+  );
+};
 
-export default App
+export default App;
